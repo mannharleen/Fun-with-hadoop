@@ -17,6 +17,9 @@ set hive.exec.dynamic.partition.mode=nonstrict;
 --insert 
 insert into categories_partitionedby_deptid partition(cat_dept_id) 
 	select cat_id, cat_name, cat_dept_id from categories;
+--insert values
+insert into categories_partitionedby_deptid partition(cat_dept_id) 
+	values (1,'one',11),(2,'two',22);
 --validate
 show partitions categories_partitionedby_cat_dept_id;
 
